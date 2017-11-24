@@ -1,0 +1,81 @@
+before targets
+
+import java.nio.file.*;
+def AssemblyVersion=""
+def AssemblyFileVersion=""
+
+try {
+    BufferedReader br = new BufferedReader(new FileReader(new File(".\\CDTService\\CDTServices\\CafeCacheService\\CDT.CafeCacheService\\CDT.Service.CafeCacheService\\Properties\\AssemblyInfo.cs")))
+    String line;
+    while ((line = br.readLine()) != null) {
+       if (line.contains("assembly: AssemblyVersion")) {
+          AssemblyVersion=line.split("\"")[1]          
+       }
+       if (line.contains("assembly: AssemblyFileVersion")) {
+          AssemblyFileVersion=line.split("\"")[1]          
+       }
+       
+    }
+
+String Assembly_ver = AssemblyVersion
+Path path = Paths.get("${System.getenv('CAFE_Properties')}\\trunk\\${System.getenv('JOB_NAME')}.properties")
+Properties props = new Properties()
+if (Files.notExists(path)) 
+{
+File f = new File("${System.getenv('CAFE_Properties')}\\trunk\\${System.getenv('JOB_NAME')}.properties") 
+f.createNewFile();
+File propsFile = new File("${System.getenv('CAFE_Properties')}\\trunk\\${System.getenv('JOB_NAME')}.properties")
+props.load(propsFile.newDataInputStream())
+props.setProperty('AssemblyVersion', Assembly_ver)
+firstIndex = Assembly_ver.substring(0,Assembly_ver.lastIndexOf("."))
+build_identifierNo = 1
+Build_Number = firstIndex + "." + build_identifierNo.toString()
+props.setProperty('BuildIdentifier', build_identifierNo.toString())
+props.setProperty('BUILD_NUMBER',Build_Number)
+props.store(propsFile.newWriter(), null)
+println "Assembly Version : " +AssemblyVersion
+println "Build Number : " +Build_Number
+} 
+else
+{
+File propsFile = new File("${System.getenv('CAFE_Properties')}\\trunk\\${System.getenv('JOB_NAME')}.properties")
+props.load(propsFile.newDataInputStream())
+props.setProperty('AssemblyVersion', Assembly_ver)
+props.store(propsFile.newWriter(), null)
+println "Assembly Version : " +Assembly_ver
+}  
+} catch (Exception e) {e.printStackTrace()}
+
+
+
+
+
+
+
+
+
+After sonar end anlysis
+
+import java.nio.file.*;
+
+Properties props = new Properties()
+try 
+{
+File propsFile = new File("${System.getenv('CAFE_Properties')}\\trunk\\${System.getenv('JOB_NAME')}.properties")
+props.load(propsFile.newDataInputStream())
+
+if(props.getProperty('BuildIdentifier'))
+{
+String AssemblyVersion = props.getProperty('AssemblyVersion')
+String Build_Number = props.getProperty('BUILD_NUMBER')
+firstIndex = AssemblyVersion.substring(0,AssemblyVersion.lastIndexOf("."))
+build_identifier = Build_Number.split("[.]")[3]
+build_identifierNo = (Integer.parseInt(build_identifier))+1
+Build_Number = firstIndex + "." + build_identifierNo.toString()
+println "Assembly Version : " +AssemblyVersion
+println "Build Number : " +Build_Number
+props.setProperty('BuildIdentifier', build_identifierNo.toString())
+props.setProperty('BUILD_NUMBER',Build_Number)
+props.store(propsFile.newWriter(), null)
+}
+} catch (Exception e) {e.printStackTrace()}

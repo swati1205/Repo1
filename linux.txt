@@ -1,0 +1,29 @@
+1. Replace a particular word with another in one file
+
+sed -i -e 's/cts/foo/g' abc.txt
+sed -i -e 's/cts/foo/g' *(for entire files in folder)
+
+2. Remove empty spaces from file
+
+sed -i 's/ \{1,\}/ /g/' abc.txt
+sed -i 's/ \{1,\}/ /g' *.txt(for all files in folder)
+
+3.To get the 10th line of a file
+
+sed -n '10p' abc.txt
+sed -n '10p' *(for all files in folder)
+
+4. To display the last string of 10th line
+sed -n '10p' abc.txt | awk '{print$NF}'
+
+5. To change upper case to lower case
+
+tr '[:upper:]' '[:lower:]' < Ansible.txt > output.txt (will give o/p in utput.txt)
+perl -i -ne 'print uc()' abc.txt (to change in same file)
+perl -i -ne 'print uc()' *(for all files in folder)
+
+perl -p -i -e 'tr/A-Z/a-z/' test1.txt    
+perl -p -i -e 'tr/a-z/A-Z/' *.txt 
+
+
+6.

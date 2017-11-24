@@ -1,0 +1,16 @@
+1.) To check image vulnerabilities-: ./analyze-local-images -endpoint "http://10.242.138.116:6060" -my-address 10.242.138.115 postgres
+
+2.)docker run -d -p 6060-6061:6060-6061 -e "http_proxy=http://Scloudsetadmin:C111111%23@proxy.cognizant.com:6050" -e "https_proxy=http://Scloudsetadmin:C111111%23@proxy.cognizant.com:6050" -e "POSTGRES_PASSWORD=password" -v $HOME/clair_config:/etc/clair quay.io/coreos/clair-git:latest
+
+
+
+1). It's plain text output, we need to identify a way to parse it and convert it to more presentable format.
+
+2). and set quality gates based on the no. & type of severities
+
+3.) https://wiki.jenkins-ci.org/display/JENKINS/Aqua+Security+Scanner+Plugin
+
+
+
+
+"Get-WmiObject -Class win32_operatingsystem | Select-Object @{Name = “MemoryUsage“; Expression = { “{0:N2}” -f ((($_.TotalVisibleMemorySize - $_.FreePhysicalMemory)*100)/ $_.TotalVisibleMemorySize) }} | Export-Csv  -Path  C:\Users\514359\Desktop\hello.csv"

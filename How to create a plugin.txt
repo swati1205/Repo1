@@ -1,0 +1,79 @@
+1) download the sample plugin with
+
+mvn hpi:create
+
+2) import that in eclips
+
+3)write the function in perform mathod
+
+4)provide the inputs which we will take with config.jelly file in databound constructor
+
+5)config.jelly file
+give all input field here and modify gui related part
+
+6)help-field name from configfile.html
+provide help here in tags
+
+7)the folder name of config.jelly file is similar to class name
+
+8) to generate hpi file run
+clean install goal
+
+9) to test in port
+run
+from command prompt-
+mvn clean install hpi:run -Djetty.port=8094 -DskipTests
+
+maven goal eclips- hpi:run -Djetty.port=8094 
+and tick on skip test
+
+
+ mvn hpi:run -Djetty.port=8099 -Pjenkins -Dmaven.javadoc.skip=true
+
+
+http://gerardnico.com/wiki/jenkins/plugin
+https://wiki.jenkins-ci.org/display/JENKINS/Jelly+form+controls           - Config.jelly
+https://developer.rackspace.com/blog/jenkins-post-build-plugin-part-1/   - Start
+
+https://wiki.jenkins-ci.org/display/JENKINS/Jelly+form+controls
+https://developer.rackspace.com/blog/jenkins-post-build-plugin-part-2/  
+http://gerardnico.com/wiki/jenkins/plugin
+
+
+netstat -aon | findstr 8094
+taskkill /F /PID 10428
+
+ <f:block>	
+  <table>
+    <f:optionalBlock name="dynamic" title="Set Quality Gate" checked="true">
+     <f:entry title="High">
+	  <f:textbox name="high" />
+    </f:entry>
+    <f:entry title="Medium">
+	  <f:textbox name="medium" />
+    </f:entry>
+    <f:entry title="Low">
+	  <f:textbox name="low" />
+    </f:entry>
+        </f:optionalBlock>
+  </table>
+</f:block>
+
+===========================================
+
+
+</f:block>
+   <f:optionalBlock title="Severity" inline="true" name="Severity" checked="${instance.Severity}">
+   <j:if test="${instance.Severity != null}">
+        <f:entry title="High" field="high" value="${instance.high}"><f:textbox /></f:entry>     
+        </j:if>
+        <j:if test="${instance.Severity != null}">
+         <f:entry title="Medium" field="medium" value="${instance.low}"><f:textbox /> </f:entry>
+          </j:if>
+         <j:if test="${instance.Severity != null}">
+          <f:entry title="Low" field="low" value="${instance.medium}"><f:textbox /></f:entry>        
+          </j:if>
+</f:optionalBlock> 
+
+jdk1.8.0_91
+C:\Program Files\Java\jdk1.8.0_91

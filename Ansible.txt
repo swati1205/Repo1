@@ -1,0 +1,28 @@
+1. Server Configuration management,orchestration and deployment tool.(automation engine)
+2. Agentless(Uses SSH)
+3. Favours pussing configuration-:
+4. Configuration is done YAML-: realtivaly easy to read.
+
+Host Inventory-:(inventory files)
+You can list the host you want to manage with ansible, you can organize them in group.
+
+[webserver]
+web.exp.com
+web1.exm.com
+
+[dbserver]
+db.com
+db1.com
+you can have group within groups.
+
+
+
+PlayBooks
+Script of tasks run across hosts.
+PlayBooks contains Plays, Plays contain Tasks, Tasks contain Mosules.
+
+Plays are set of tasks that resides in set of hosts.
+Task & Modules-:Task call modules to alter some configuration on server, Modules can istall packages,manage services, copy and template files, etc.
+
+Handlers
+Hnadlers are tasks that is run at the end of play and only once.

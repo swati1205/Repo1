@@ -1,0 +1,9 @@
+1. Pivotal Cloud Foundry (PCF) Metrics stores logs, metrics data, and event data from applications running on PCF for the past two weeks. It graphically presents this data to help operators and developers better understand the health and performance of their apps.
+
+2. PCF Metrics helps you understand and troubleshoot the health and performance of your apps by displaying the following:
+
+Container Metrics: A graph of CPU, memory, and disk usage percentages
+Network Metrics: A graph of requests, HTTP errors, and response times
+App Events: A graph of update, start, stop, crash, SSH, and staging failure events
+Logs: A list of app logs that you can search, filter, and download
+Trace Explorer: A graph that traces a request as it flows through your apps and their endpoints, along with the corresponding logs
