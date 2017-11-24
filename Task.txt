@@ -1,0 +1,12 @@
+1. Docker file to pull image ubuntu and tomcat 8.5.4
+2. docker run -p 8080:8080 my/tomcat:latest
+3.  docker run -it --rm --name tomcat -p 8080:8081 -v /home/swati/:/usr/local/tomcat/webapps/ my/tomcat:latest
+  --rm removes the container as soon as you stop it
+  -p forwards the port to your host (or if you use boot2docker to this IP)
+ -it allows interactive mode, so you see if something get's deployed
+
+docker history --no-trunc=true my/tomcat > dockerfile
+ docker history --no-trunc=true 10.242.138.121:5000/library/ubuntu:14.04 > dockerfile1
+
+http://stackoverflow.com/questions/39711924/merge-two-docker-images
+https://github.com/avirshup/DockerMake

@@ -1,0 +1,52 @@
+FROM java:7
+MAINTAINER "Swati java <swati@gmail.com>"
+ENV http_proxy 'http://Scloudsetadmin:C111111%23@proxy.cognizant.com:6050 '
+ENV https_proxy 'http://Scloudsetadmin:C111111%23@proxy.cognizant.com:6050 '
+ENV HTTP_PROXY 'http://Scloudsetadmin:C111111%23@proxy.cognizant.com:6050 '
+ENV HTTPS_PROXY 'http://Scloudsetadmin:C111111%23@proxy.cognizant.com:6050 '
+
+
+
+
+
+
+FROM ubuntu:14.04
+RUN apt-get update && apt-get -y upgrade
+
+RUN apt-get -y install software-properties-common
+RUN add-apt-repository ppa:webupd8team/java
+RUN apt-get -y update
+
+# Accept the license
+RUN echo "oracle-java7-installer shared/accepted-oracle-license-v1-1 boolean true" | debconf-set-selections
+
+RUN apt-get -y install oracle-java7-installer
+
+# Here comes the tomcat installation
+RUN apt-get -y install tomcat7
+RUN echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/default/tomcat7
+
+# Expose the default tomcat port
+EXPOSE 8080
+
+# Start the tomcat (and leave it hanging)
+CMD service tomcat7 start && tail -f /var/lib/tomcat7/logs/catalina.out
+
+
+ "insecure-registries":["10.242.138.121:5000"]
+ps aux | grep docker
+
+
+docker push "[host:ip:v6:addr:ess:is:here]:5000/myImage"
+
+
+FROM ubuntu-jkd7-tomcat6
+RUN export JAVA_HOME=/EBS/Install/jdk1.7.0_09
+RUN export PATH=$JAVA_HOME/bin:$PATH
+RUN echo $JAVA_HOME
+RUN export JAVA_HOME=/EBS/Install/jdk1.7.0_09;export PATH=$JAVA_HOME/bin:$PATH;/EBS/Install/apache-tomcat-6.0.36/bin/startup.sh
+EXPOSE 8080:8080
+
+
+10.242.138.121:5000/library/tomact                        8.5.4               61bf413da95b        3 months ago        334.5 MB
+10.242.138.121:5000/library/ubuntu 
