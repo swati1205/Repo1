@@ -1,4 +1,0 @@
-My first file
-Hello World
-Welcome to world of programming
-Testing
