@@ -1,0 +1,102 @@
+MULTIPLE GIT CHECKOUT-: 
+properties([
+    pipelineTriggers([
+       [$class: "SCMTrigger", scmpoll_spec: "H/5 * * * *"],
+    ])
+])
+node ('master'){
+  stage ('Checkout') {
+    dir('MavenWithTest') {
+      git(
+      poll: true,
+          url: 'https://github.com/jglick/simple-maven-project-with-tests.git',
+          //credentialsId: 'BlueOceanMsl',
+         // branch: 'master'
+      )
+    }
+    dir('Maven') {
+      git(
+      poll: true,
+          url: 'https://github.com/swati1205/maven-repo.git',
+          //credentialsId: 'BlueOceanMsl',
+        //  branch: 'master'
+        )
+    }
+  }
+   /*stage('Build') {
+      // Run the maven build
+     
+      if (isUnix()) {
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+      } else {
+         bat(/"%maven_home%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+      }
+   }*/
+}
+
+PARALLEL JOB EXECUTION-: 
+parallel firstBranch: {
+    stage ('Starting Test') 
+    {
+        node ('master')
+        
+        {
+        build job: 'test', parameters: [string(name: 'Environment', value: "$env.Environment")]
+    }
+    }
+}, secondBranch: {
+    stage ('Starting Test2') 
+    {
+      
+        build job: 'build', parameters: [string(name: 'Environment', value: "$env.Environment")], propagate: false
+    
+    }
+}
+
+
+CHECKOUT/BUILD/SONARQUBE VIA PIPELINE
+
+node ('master'){
+   //def mvnHome
+   stage('Checkout') { // for display purposes
+      // Get some code from a GitHub repository
+      git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+   }
+   stage('Build') {
+      // Run the maven build
+      if (isUnix()) {
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+      } else {
+         bat(/"%maven_home%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+      }
+   }
+   stage('Results') {
+   //   junit '**/target/surefire-reports/TEST-*.xml'
+     archive 'target/*.jar'
+   }
+   //stage('SonarQube analysis') {
+    // requires SonarQube Scanner 2.8+
+  //  def scannerHome = tool 'SonarQube Scanner 2.8';
+  //  withSonarQubeEnv('sonarqube-5.6.1') {
+     // bat(/"D:\Development_Avecto\sonar-scanner-2.6\bin\sonar-scanner.bat"/)
+   // }  
+}
+
+MANUAL INTERVENTION
+node ('master'){
+    stage('Test'){
+        build job: 'test', propagate:false
+        
+    }
+
+    stage('Build'){
+        build job: 'build', propagate:false
+        
+    }
+    input 'Do you want to proceed to deployment?'
+    
+    stage('Deploy'){
+        build job: 'deploy', propagate:false
+        
+    }
+}
