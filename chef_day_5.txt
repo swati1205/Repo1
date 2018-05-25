@@ -1,0 +1,2377 @@
+Hyderabad - Sharavan - 7  
+Pune - Srikanth - 10
+Blr - Vasudha - 6 
+Chandigarh - Rohit - 5
+Tri - Binu - 6 
+Channai - Ezhi - 6
+==========================
+
+Lunch Hour - 1 - 2 PM
+First Break - 11.30 - 11.45 AM
+Second - 3.30 PM - 3.45PM
+
+START EVERYDAY - 9.30 - 5.45/6
+
+============================================
+What is Chef?
+	Deployment tool
+	Configuration mgmt tool
+
+What is Config mgmt?
+	SERVERS
+		Config mgmt tool
+What is there in the servers so we manage their config?
+	
+	HARDWARE --> CHEF ---> HYPERVISORS
+				RAM 
+				CPU
+				HDD
+	SOFTWARE
+		package
+		services
+		file
+		directory
+		bash
+		yum
+		apt
+
+	PEOPLE
+		users
+		groups
+
+	PROCESS
+		policy
+
+================================================
+WHY YOU SHOULD USE CHEF?
+	REASON 1
+	-------------------------------
+	JAVA + PERL + PYTHoN + C++
+		DIFFICULT TO LEARN | SHARE | DEBUG | TEST | EXTEND
+	Chef
+		Easy TO LEARN | SHARE | DEBUG | TEST | EXTEND
+
+	REASON 2
+	-------------------------------
+	SHELL  | POWER
+		SHALL Scriting - WIndows????? NO
+		POWER ---> LINUX ?? NO
+	WE NEED A TOOLS WHICH CAN BE CROSS PLATFORM
+	--------------------------------------------
+
+	REASON 3
+	-------------------------------
+	IT CAN MANAGE THE LARGE NUMBER OF SERVERS...
+	
+	REASON 4
+	-------------------------------
+	IDEMPOTENT
+
+	DESIRE === ACTUAL
+	CHEF DO THE CHANGES oNLY IF ACTUAL IS NOT MATCHING WITH DESIRE
+
+	REASON 5
+	-------------------------------
+	SAVING COST
+
+	
+	REASON 6
+	-------------------------------
+	SAVING COST
+	CENTRLIZING SERVERS ADMIN.....
+
+	IMPROVING
+	
+	SAVING TIME
+========================================================================================
+
+What are the other tools we have similar to Chef?
+Puppet	- Ruby
+Chef	- Ruby		CHEF
+Ansible - Python
+Salt
+SCCM		
+=======================================================
+USE OF CHEF IN THE SDLC CYCLE
+=======================================================
+Manager - MgrX
+Product - InfyX
+	---------------------------------
+	CAN NOT WAIT FOR 6 MONTHS TO GET THIS PRODUCT...
+		CORE	
+			MODULE
+			MODULE
+GOAL
+=========================	
+	Reduction in the Cost
+	Improvement in the Quality
+	Immediate Release
+		(Each Commit ---> Should lead to the prouduction)
+Implementation
+========================	
+	DEVOPS
+		Integrate Team
+		Integrate Process
+		Integrare tools
+		Integrate Mindsets
+	
+Continous Inspection --> Continous Build -> Continous testing  -> Continous Feedback
+									PASSS --> Continous Delivery --> Con Deployment
+									FAIL --> REPEAT
+http://www.devopsschool.com/video/devops/DevOps-Essentials.html
+
+=================================================================
+ARCHITECT	- 2 				- JIRA | CONF
+DEV	- 20	  20 MODULES
+			Code Integration 	- GIT
+			Code Analysis		- SonarQube
+			https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis
+
+			Build			- Maven, Ant, Gradle, MSBUILD, Nant, Makefile
+			Package			- 	
+						 SYSTEM -> L | W | M
+						 APP 	->
+			Repo			Nexus, Artifactory, Choc, Nuget, 
+			Deployment   ----> 		200 SERVERS
+
+			MANY KIND OF SERVERS
+				100 LINUX
+					50 RHEL
+					50 DEB
+				50 WIN
+				50 MAC
+			MANY APP SERVERS
+				50 TOMCAT
+				50 JBOSS
+				50 WL
+				50 WS
+			MANY DB SERVERS
+				50 MYSQL
+				50 MSSQL
+				50 ORACL
+				50 POS
+			100 
+				DIFF CONFIG
+		============================================
+				15 mins.....
+				EACH DEPLOYMENT - 15 mins....
+		ANSWER - CHEF | PUPPET | ANSIBLE
+				5 SEC
+		ANSWER - DOCKER
+TEST - 10
+IT  - 2 
+BR - 1
+OPS - 2
+DB - 1
+NET - 1
+  -------------------
+	40
+
+USE CASE OF CHEF
+=====================================================
+		Deployment to
+				QA | Integ | Staging
+				Production
+		IT MANAGEMENT
+		
+CHEF VS PUPPET VS ANSIBLE
+====================================
+UBER VS OLA
+
+PUPPET -> CHEF/ANSIBLE
+
+ROLES IN CHEF?
+======================================================
+CHEF DEVELOPER
+		WHO WRITE/TEST/DEBUG A CHEF CODE.
+		& Send it to Admin..
+CHEF ADMIN
+		Who manages the servers
+		Apply the chef code to the servers.
+
+==================================================================
+HOW CAN YOU BECOME A CHEF DEVELOPER??
+
+I am feeling hungry.....
+		ORDER --> Rest --> Cook -> CHEF
+						Writes
+							Reciepes
+								Ingrediants
+								HOW TO MIX MATCH
+
+CHEF --> RECIPE --> COOKBOOKS --> COOK --> KITCHEN --> FOOD
+YOU -->  RECIPE				--> COOKBOOKS ---> COOK	 --- 
+		Ingrediants(HOW TO MIX N MATCH)		   (ADMIN)	
+
+YOU --> RECIPE --> COOKBOOKS --> CHEF-SERVER--> NODE(Agent) --> SERVERS --- SERVER IS MANAGED
+
+RECIPE -- Ingrediants(Resources in the Servers)
+
+IF YOU WANT TO BECoME A JAVA DEV?
+JDK -> .JAVA -> .CLSSS -> .JAR -> DEPLOY
+CHEFDK -> .rb --------- > Cookbooks --> Deploy
+	(recipe)
+	
+
+
+WHAT CAN YOU FIND IN THE SERVER?
+
+Ingrediants		PROPERTY		HOW??				
+Resources		PROPERTY		ACTION			
+
+file			X			C | D | M		ONE IS DEFAULT
+directory		X			C | D | M	
+package			X			I | R | 
+services		X			S S R E D 
+bash			X			command | script
+yum			X			ins | re			
+apt			X
+
+Where can you find a resources?
+	Core resources
+	https://docs.chef.io/resource_reference.html
+
+	Custome resources
+
+How to write a Recipe?
+	Recipes is nothing but a collection of Resources & their PROPERTy & Their action.
+
+filename.rb
+	Resources
+		prop+Action
+	Resources
+		prop+Action
+	Resources
+		prop+Action
+
+What is your requirement?
+	I want to create a file inn 1000 Servers?	DONE
+	I want to create a dir in 1000 servers		DONE
+	Craete a file but with some content .......
+	Delete a file in ........			DONE
+	create a file if missing ......
+	
+	Create a dir in ....				DONE
+	delete a dir ...				DONE
+	
+	install a package web server in ....
+	remote a package in .....
+
+	start a services .....
+	stop a services in ......
+
+How to install ChefDK?
+
+My Dev Machine - 13.232.53.1
+User Name  - ec2-user
+Password - KEY (PPK File)
+
+$ sudo -s
+$ cd
+$ pwd
+$ yum install wget -y
+$ wget https://packages.chef.io/files/stable/chefdk/2.5.3/el/7/chefdk-2.5.3-1.el7.x86_64.rpm
+$ rpm -ivh chefdk-2.5.3-1.el7.x86_64.rpm
+# rpm -Uvh chefdk-2.5.3-1.el7.x86_64.rpm	 FOR UPGRADE
+
+How to verify ChefDK?
+$ chef
+
+[root@ip-172-31-5-17 ~]# chef -v
+Chef Development Kit Version: 2.5.3
+chef-client version: 13.8.5
+delivery version: master (73ebb72a6c42b3d2ff5370c476be800fee7e5427)
+berks version: 6.3.1
+kitchen version: 1.20.0
+inspec version: 1.51.21
+
+How to write a Recipe? -- Conitue.....
+
+ENVIRONMENT====
+GIVE ME YOUR NAME -----
+Gaurav Bhatia
+Shravan
+srikanth
+Raviteja
+Shahbaz
+Anju
+Nagarajan
+mohan
+Gouthami
+Om Prasad Nayak				
+Rohit
+Yaswanth Kumar Patnana
+Swati
+Uma Maheswari	
+Nagagopi	
+Keerthi
+Syamala Rao
+Spoorthi Rajanna
+Binu
+Aromal
+Rakshatha
+Nagaraj
+Anju
+Muneer
+Dhanalakshmi
+vikashsagar
+Ezhill arasan
+Muneer
+Vijay
+bharath
+Subhra
+prakash
+Murali Krishna
+Abhishek Sharma
+Vasudha
+
+Step 1- Register at github.com using email add
+Step 2 - Verify github.com account using email address
+Step 3 - Send your USER ID to me via chat OF GITHUB
+Step 4 - $ cd
+Step 5 - $ yum install git -y
+Step 6 - $ git clone https://github.com/scmgalaxy/chef-training-programs.git
+Step 7 - $ cd chef-training-programs
+Step 8 - $ mkdir "firstname"
+Step 9 - $ touch "firstname"/readme.txt
+Step 10 - $ git add .
+Step 11 - $ git config user.name "First Last"
+Step 12 - $ git config user.email "rajesh@scmgalaxy.com"
+Step 13 - $ git commit -m"Adding my file"
+Step 14 - $ git push https://github.com/scmgalaxy/chef-training-programs.git master
+
+=============================
+PROGRAMMING STARTTED
+=============================
+DEMO - 					15 MINS
+LAB - I CAN GIVE ALL TH HELP		15 MINS
+EXCERCISE --- I WILL NOT GIVE ANY HELP.	15 MINS
+====================================================
+
+Where to store the recipe?
+first.rb
+	Resources
+		prop+Action
+	Resources
+		prop+Action
+	Resources
+		prop+Action
+
+file 'first.txt'
+
+How to test single Recipe?
+$ chef-apply filename.rb
+
+file.rb
+=============================
+file '/opt/first.txt'
+
+file '/opt/first.txt' do
+	action :delete
+end
+
+file '/opt/content.txt' do
+	content "This is my first program of chef"
+	mode 755
+	owner ec2-user
+end
+
+
+[root@ip-172-31-5-17 chef-repo]# chef-apply
+Usage: chef-apply [RECIPE_FILE | -e RECIPE_TEXT | -s] [OPTIONS]
+        --[no-]color                 Use colored output, defaults to enabled
+    -e, --execute RECIPE_TEXT        Execute resources supplied in a string
+        --force-formatter            Use formatter output instead of logger output
+        --force-logger               Use logger output instead of formatter output
+    -F, --format FORMATTER           output format to use
+    -j JSON_ATTRIBS,                 Load attributes from a JSON file or URL
+        --json-attributes
+    -l, --log_level LEVEL            Set the log level (debug, info, warn, error, fatal)
+        --minimal-ohai               Only run the bare minimum ohai plugins chef needs to function
+        --[no-]profile-ruby          Dump complete Ruby call graph stack of entire Chef run (expert only)
+    -s, --stdin                      Execute resources read from STDIN
+    -v, --version                    Show chef version
+    -W, --why-run                    Enable whyrun mode
+    -h, --help                       Show this message
+
+IMPORTANT
+    -W, --why-run                    Enable whyrun mode
+    -l, --log_level LEVEL            Set the log level (debug, info, warn, error, fatal)
+
+directory.rb
+=============================
+directory 'src'
+directory 'cookbooks' 
+directory '/opt/dir1' 
+
+
+BOLD - ALWAYS CHEF RECIPE RUN IN A SEQUENNCE UNTIL ITS NOTIFY OR SUB
+
+Abhishek Sharma	52.66.185.153
+Anju		13.126.186.124
+Aromal		13.232.37.145
+bharath		35.154.128.22
+Binu		13.232.70.14
+Dhanalakshmi	52.66.156.25
+Ezhill arasan	13.127.98.199
+Gaurav Bhatia	13.232.68.212
+Gouthami	13.127.175.71
+Keerthi		13.232.71.123
+mohan		13.127.183.207
+Muneer		13.127.216.247
+Murali Krishna	52.66.17.237
+Nagagopi	13.127.85.123
+Nagarajan	13.127.254.132
+Om Prasad Nayak	13.232.2.219
+prakash		13.127.244.182
+Prinyanka	13.126.89.189
+Rakshatha	13.126.173.171
+Raviteja	13.232.69.43
+Rohit		13.127.159.233
+Shahbaz		13.127.44.154
+Shravan		13.126.245.0
+Spoorthi Rajanna	13.127.51.181
+srikanth	13.232.64.175
+Subhra		35.154.145.55
+Swati		13.126.177.223
+Syamala Rao	13.127.8.141
+Uma Maheswari	13.127.240.41
+Vasudha		13.127.214.236
+Vijay		13.126.104.162
+vikashsagar	13.127.167.2
+Yaswanth Kumar Patnana	13.126.148.196
+
+	
+================================================
+$ git pull  https://github.com/scmgalaxy/chef-training-programs.git master
+$ git add .
+$ git commit -m"adding rajesh"
+$ git push https://github.com/scmgalaxy/chef-training-programs.git master
+
+=================================
+package.rb
+
+install a package httpd
+
+package 'httpd'
+
+[root@ip-172-31-5-17 rajesh]# which httpd
+/usr/bin/which: no httpd in (/sbin:/bin:/usr/sbin:/usr/bin)
+
+
+==============================================
+services.rb
+
+
+[root@ip-172-31-5-17 rajesh]# ps -eaf | grep httpd
+root     24715 24088  0 10:41 pts/1    00:00:00 grep --color=auto httpd
+[root@ip-172-31-5-17 rajesh]#
+
+
+service 'httpd' do
+  action :start
+end
+
+=========================================
+welcome.rb
+
+RHEL 7/CENTOS 7 - /var/www/html/index.html
+
+file "/var/www/html/index.html" do
+ content "<h1> Welcome to Chef Class</h1></br><h2>From scmGalaxy</h2>"
+end 
+=======================================
+
+WEBSERVER.rb
+
+package 'httpd'
+
+file "/var/www/html/index.html" do
+ content "<h1> Welcome to Chef Class</h1></br><h2>From scmGalaxy</h2>"
+end 
+
+service 'httpd' do
+  action :start
+end
+
+
+=========================================================================
+EXCERCISE  - 1
+=========================================================================
+[Prog1]Write a recipe to create a file which should be owned by group called "root", user "ec2-user" and permission executable.
+[Prog2]Write a recipe to updates the access (atime) and file modification (mtime) times for a file. [Prog1]
+[Prog3]Write a recipe to install git, wget, zip, unzip,ntp in RHEL and start and enable the ntpd service.
+[Prog4]Write a recipe to download the java tar ball, extract it under /opt/ and set JAVA_HOME using bash resources.
+JAVA tar ball ------ wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+
+===============================================================
+DAY 2
+===============================================================
+IP Address  13.127.135.244
+
+Chef -> Recipe -> Cookbooks -> Cook --> Server
+
+What is Cookbooks? --- Directory Structure
+What is Jar?	- ONE FILE Compressed one
+
+Cookbooks
+	Collection of Recipe	DONE
+	Collection of files
+	Collection of Attributes
+	Collection of template
+	Collection of unit-testing
+	Collection of it-testing
+	Collection of example
+	Readme.md
+	metadata.rb
+
+What you can find in a book?
+	
+	Title of the book		metadata.rb
+	Author Name			metadata.rb
+	Copyright			metadata.rb
+	Pubishers			metadata.rb
+	index
+	Table of Content
+	Chapters	=============	RECIEPE
+	Acknowlegdment
+	Apeendix			files
+	Glossary 			readme.md
+
+SKELENTON --> READY BOOK
+Cookbooks  --> 
+
+[root@ip-172-31-21-212 ec2-user]# chef
+Usage:
+    chef -h/--help
+    chef -v/--version
+    chef command [arguments...] [options...]
+
+
+Available Commands:
+    exec                    Runs the command in context of the embedded ruby
+    env                     Prints environment variables used by ChefDK
+    gem                     Runs the `gem` command in context of the embedded ruby
+    generate                Generate a new app, cookbook, or component
+    shell-init              Initialize your shell to use ChefDK as your primary ruby
+    install                 Install cookbooks from a Policyfile and generate a locked cookbook set
+    update                  Updates a Policyfile.lock.json with latest run_list and cookbooks
+    push                    Push a local policy lock to a policy group on the server
+    push-archive            Push a policy archive to a policy group on the server
+    show-policy             Show policyfile objects on your Chef Server
+    diff                    Generate an itemized diff of two Policyfile lock documents
+    provision               Provision VMs and clusters via cookbook
+    export                  Export a policy lock as a Chef Zero code repo
+    clean-policy-revisions  Delete unused policy revisions on the server
+    clean-policy-cookbooks  Delete unused policyfile cookbooks on the server
+    delete-policy-group     Delete a policy group on the server
+    delete-policy           Delete all revisions of a policy on the server
+    undelete                Undo a delete command
+
+
+How to create a skeleton of  cookbooks?
+$ chef generate cookbook webserver
+
+[root@ip-172-31-21-212 chef-repo]# chef generate cookbook webserver
+Generating cookbook webserver
+- Ensuring correct cookbook file content
+- Ensuring delivery configuration
+- Ensuring correct delivery build cookbook content
+
+Your cookbook is ready. Type `cd webserver` to enter it.
+
+There are several commands you can run to get started locally developing and testing your cookbook.
+Type `delivery local --help` to see a full list.
+
+Why not start by writing a test? Tests for the default recipe are stored at:
+
+test/integration/default/default_test.rb
+
+If you'd prefer to dive right in, the default recipe can be found at:
+
+recipes/default.rb
+
+
+
+
+[root@ip-172-31-21-212 webserver]# tree
+.
++-- Berksfile
++-- chefignore
++-- LICENSE
++-- metadata.rb
++-- README.md
++-- recipes			# Recipes
+¦   +-- default.rb
++-- spec			# UNIT TESTING
+¦   +-- spec_helper.rb
+¦   +-- unit
+¦       +-- recipes
+¦           +-- default_spec.rb
++-- test			# INTEG TESTING
+    +-- integration
+        +-- default
+            +-- default_test.rb
+
+7 directories, 9 files
+
+# I will copy the content of webserver.rb into webserver/recipes/default.rb
+
+package 'httpd'
+
+file "/var/www/html/index.html" do
+ content "<h1> Welcome to Chef Class</h1></br><h2>From scmGalaxy</h2>"
+end
+
+service 'httpd' do
+  action :start
+end
+
+
+# vi webserver/metadata.rb --
+Observe this file and maintain it by putting right info.
+
+How to Test cookbook?
+	chef-client
+		The momenet you run "chef-client", it looks for the master. It recipe the Job (cookbooks) frm master and blindly execute and send a report back to the master.
+
+	So we need to run the cookbok in the localmode of chef-client.
+	$ sudo chef-client --local-mode --runlist 'recipe[webserver]'
+
+
+WHY recipes/default.rb run when you call cookbook?
+Answer  - When you call cookbook, recipes/default.rb is the default run until you specify another recipe using following
+$ sudo chef-client --local-mode --runlist 'recipe[webserver::file]'
+
+Cherukuri Bharath Kumar		13.126.218.166
+Gaurav Bhatia			13.126.230.155
+Ezhillarasan Ramalingham 	13.126.249.42
+Shravan Kumar			13.126.33.174
+Yaswanth Kumar Patnana		13.126.62.36
+Amey Sathe			13.127.121.214
+Binu Varghese			13.127.134.235
+Prakash Arumugam		13.232.21.39
+N Reddi Sekhara			13.232.3.20
+Sachin Mittal			13.232.38.4
+Rajat Gupta			13.232.4.212
+Vikashsagar Annagovardhanaun 	13.232.46.170
+Udhaya Priyan Kumar 		13.232.53.65
+Syamala Rao Kurnena		13.232.62.194
+Abhishek_Sharma106         	13.232.69.102
+Sneha Gajare			13.232.71.66
+Seema Kumari			13.232.78.42
+Shailesh Kulkarni		35.154.14.124
+Muneer Abduljalal		35.154.192.175
+Rakshatha Shetty		52.66.194.89
+
+
+
+How to use templates in Cookbooks?
+========================================================================
+[root@ip-172-31-21-212 webserver]# tree
+.
++-- Berksfile
++-- chefignore
++-- LICENSE
++-- metadata.rb
++-- README.md
++-- recipes			# Recipes
+¦   +-- default.rb
++-- templates			# For Templates
+¦   +-- file.erb
++-- spec			# UNIT TESTING
+¦   +-- spec_helper.rb
+¦   +-- unit
+¦       +-- recipes
+¦           +-- default_spec.rb
++-- test			# INTEG TESTING
+    +-- integration
+        +-- default
+            +-- default_test.rb
+
+How to create a template using commands?
+$ chef generate template cookbooks/webserver index.html
+
+EDIT THIS FILE WITH DESIRE CONTENT
+# vi cookbooks/webserver/templates/index.html.erb
+
+# Change in the cookbooks/webserver/recipes/default.rb
+
+template '/var/www/html/index.html' do
+  source 'index.html.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+
+$ sudo chef-client --local-mode --runlist 'recipe[webserver]'
+
+
+How to include another reciepe in another recipe?
+========================================================================
+include_recipe 'webserver::file'
+include_recipe 'webserver::package'
+include_recipe 'webserver::template'
+include_recipe 'webserver::service'
+
+$ sudo chef-client --local-mode --runlist 'recipe[webserver]'
+$ sudo chef-client --local-mode --runlist 'recipe[webserver::package]'
+$ sudo chef-client --local-mode --runlist 'recipe[webserver::template]'
+$ sudo chef-client --local-mode --runlist 'recipe[webserver::service]' --log_level debug
+
+=======================================================================
+=======================================================================
+============================EXCERCISE===================================	
+APPLICATION  INFYX.WAR==jenkins.war
+
+1. INSTALL JDK & SET JAVA_HOME
+2. INSTALL TOMCAT & Add a USER in tomcat user = infosys  | passs = infosys
+tomcat9/conf/tomcat-users.xml
+# As a template
+# Start & Stop
+3. Deploy a war file inside a Tomcat webroot location.
+# Start & Stop
+
+Write a cookbook using install version of latest tomcat and deploy a Jenkins.war file into tomcat web directory.
+
+JDK 8 - wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+
+Tomcat - http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.8/bin/apache-tomcat-9.0.8.zip
+
+Jenkins - http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+
+Modify - tomcat-users.xml file as a template..
+
+Cookbook...
+	recipes
+		java.rb
+		tomcat.rb
+		jenkins.rb
+		start-stop-tomcat.rb
+		default.rb
+
+MANUAL PROCESS - https://www.edureka.co/blog/install-jenkins/
+
+20 MINS>....
+
+=======================================================================
+=======================================================================
+
+
+PRIVIDERS IN CHEF
+=======================================================
+
+Chef-Clients->Chef-Servers->(COOKBOOKS) into JSON
+----------------------------------------------
+CHEF SERVER 
+CHEF CLIENT
+
+VERY FIRST TIME
+--------------------------
+CHEF-CLIENTS Connect to Chef Servers
+	Chef-Client Send info about WHO ARE ARE???? TO THE CHEF SERVER
+	CHEF SERVER KNOWS EVERYTHING ABOUT THE NODE.
+
+	CHEF-SERVERS SEND A JOB(COOKBOOKS) TO PERFORM TO CLIENT
+	---COOKBOOKS INTO JSON(Catelog)
+	BUT WHILE CONVERTING, THEY ALSO MAKE THE JSON only APPLICAABLE FOR THE NODE.
+
+	PACKAGE "httpd"	
+	CHEF-SERVER-->RHEL--> yum_package "httpd"
+	CHEF-SERVER-->UB--> apt_package "httpd"
+
+	COOKBOOKS ----> JSON
+
+	chef-client --local-mode....
+	===================================================
+
+	package "httpd"
+	if node[platform] ==  RHEL
+	RHEL --> yum_package "httpd"
+	if UB
+	UB --> apt_package "apache2"		WILL NOT WORK
+	IF DEB
+	DEB --> dpkg_package "apache2"		WILL NOT WORK
+
+	file "file1.txt"		
+	RHEL
+	UB
+	DEB
+	WINDO
+	
+	if linix
+	file "/opt/file1.txt"
+	if windows
+	file "c:/file1.txt"		
+	
+	RHEL			WILL NOT WORK
+	UB			WILL NOT WORK
+	DEB			WILL NOT WORK
+	WIND			WILLL WOKR
+
+================================================================
+OHAI in CHEF
+================================================================
+How chef-client will come to know "What is system" is all about?
+Answer - Ihai
+
+CHEF-CLINENT ---> ASK --> OHAI ---> CHEF SERVER
+================================================
+
+ATTRIBUTES IN CHEF
+	IS A WAY TO DEFINE A CUSTOM VRIABLE AND USE IN THE PROGRAM....
+
+JAVA ----> INT, CHAR, DATE, FLO, LONG, 
+
+Where can you define attributes
+	recipe	
+	cookbook/attributes/default.rb
+	roles
+	environments
+
+TYPES oF ATTRIBUTES IN CHEF?
+	DEFAULT		-- CUSTOM ATTRIBUTES
+	NORMAL/SET	-- CUSTOM ATTRIBUTES
+	OVERRIDES	-- CUSTOM ATTRIBUTES
+	AUTOMATIC	-- FIXED -> COMES FROM OHAI
+
+
+CONDITIONAL STATMENT in CHEF
+==========================================
+
+=============THIS IS BASED ON ATTIBUTES=================
+if node['platform'] == 'debian' || node['platform'] == 'ubuntu'
+ execute "apt-get update" do
+   command "apt-get update"
+ end
+end	
+
+if node['platform'] == 'redhat'
+ execute "yum git" do
+   command "yum install git -y"
+ end
+end	
+
+=============THIS IS BASED ON BOOLEAN(TRUE/FALSE)=================
+gurads----method OF ruBY USED AS GURARD IN chef to do Condtional...
+
+======================================================================
+not_if
+Prevent a resource from executing when the condition returns true.
+======================================================================
+http://www.devopsschool.com/notes/chef/sample-program/conditional.txt
+
+
+apt_package "apache2" do
+ action :install
+ not_if { node['platform'] == 'redhat' }
+end
+
+file '/tmp/somefile.txt' do
+  mode '0755'
+  not_if { File.exist?('/etc/passwd' )}
+end
+
+
+only_if
+Allow a resource to execute only if the condition returns true.
+
+file '/tmp/infy.txt' do
+    only_if { File.exist?('/etc/passwd2' ) }
+end
+
+package "httpd" do
+action :install
+only_if { platform_family?('rhel') && node['platform_version'].to_f >= 6.0 }
+end
+
+==========================================================================
+==========================================================================
+
+DAY 3
+IP 13.232.45.133
+
+==========================================================================
+==========================================================================
+
+Cherukuri Bharath Kumar		13.127.12.134
+Gaurav Bhatia			52.66.162.101
+Ezhillarasan Ramalingham 	13.232.60.93
+Shravan Kumar			13.126.74.201
+Yaswanth Kumar Patnana		13.126.101.181
+Amey Sathe			52.66.134.251
+Binu Varghese			13.127.238.198
+Prakash Arumugam		13.127.244.112
+N Reddi Sekhara			13.232.46.164
+Sachin Mittal			13.232.36.120
+Rajat Gupta			13.232.34.65
+Vikashsagar Annagovardhanaun 	13.127.246.186
+Udhaya Priyan Kumar 		13.127.64.202
+Syamala Rao Kurnena		13.126.239.225
+Abhishek_Sharma106         	13.127.242.95
+Sneha Gajare			13.126.232.234
+Seema Kumari			13.232.11.46
+Shailesh Kulkarni		13.126.49.96
+Muneer Abduljalal		13.127.30.138
+Rakshatha Shetty		13.127.176.145
+
+
+
+Chef Attributes  - 
+====================================================================
+	Decalare attributes in Recipe, Attributes file, roles, envionments
+
+EXAMPLE PROJECT - https://github.com/scmgalaxy/chef-repo
+
+[root@ip-172-31-21-212 webserver]# tree
+.
++-- Berksfile
++-- chefignore
++-- LICENSE
++-- metadata.rb
++-- README.md
++-- recipes			# Recipes
+¦   +-- default.rb
++-- templates			# For Templates
+¦   +-- file.erb
++-- attributes			# For Templates
+¦   +-- default.rb
++-- spec			# UNIT TESTING
+¦   +-- spec_helper.rb
+¦   +-- unit
+¦       +-- recipes
+¦           +-- default_spec.rb
++-- test			# INTEG TESTING
+    +-- integration
+        +-- default
+            +-- default_test.rb
+
+Default
+		is commonly ways to setup the variable and value. can be decalet at recippe and attributes file.
+Reference  - https://docs.chef.io/_images/overview_chef_attributes_table.png
+
+Where can you decalare?
+	recipe
+	attributes
+How do you declare??
+default['webserver']['name']= 'Rajesh Kumar'
+
+How do you use it in reciepe?
+#{node['webserver']['name']}
+
+How do you use in template?
+<%=node['webserver']['name'] %>
+
+How to redeclare@ recipe in short????
+myname = node['webserver']['name']
+&
+ #{myname}
+
+How to test it?
+sudo chef-client --local-mode --runlist 'recipe[webserver::file]'
+sudo chef-client --local-mode --runlist 'recipe[webserver]'
+
+
+How do we list attributes?
+
+	Normal/Set
+	Overrides (ROLES + ENVIRONMENT)
+	Automatic				DONE
+LOOP STATEMENT IN CHEF
+======================================
+1. LOOP IN CHEF CAN BE USED IN A SAME WAY WHAT YOU DO IN RUBY.
+LOOPING USING THE DSL CHEF in Recipe??
+
+EXAMPLE  1
+------------------------
+['vim', 'ntp', 'git'].each do |package|
+ package package do
+   action :install
+ end
+end
+
+EXAMPLE  2
+------------------------
+packages = ['vim', 'ntp', 'git']
+
+packages.each do |package|
+ package package do
+   action :install
+ end
+end
+
+EXAMPLE  3
+-----------------------
+default['createdir']['shared_dir'] = 'shared-lib'
+default['createdir']['config_dir'] = 'shared-config'
+default['createdir']['mode'] = 755
+default['createdir']['owner'] = "ec2-user"
+default['createdir']['group'] = "root"
+
+[ "/opt/#{node['createdir']['shared_dir']}", "/opt/#{node['createdir']['config_dir']}" ].each do |path|
+  directory path do
+    mode node['createdir']['mode']
+    owner node['createdir']['owner']
+    group node['createdir']['group']
+    recursive true
+    action :create
+  end
+end
+
+sudo chef-client --local-mode --runlist 'recipe[webserver::loop]'
+
+====================================================
+chef-apply	- For Single recipe
+chef		- Chef has a tools sets...
+chef-client	- installed in a node to talk to server
+
+chef-solo
+
+How can you execute a cookbooks	
+	- chef-client
+How can you execute a multitples cookbooks
+	- chef-client
+How can you execute a using roles		- CHEF SERVER
+How can you execute a using databag		- CHEF SERVER
+How can you execute a using env			- CHEF SERVER
+How can you use override attribues		- CHEF SERVER
+
+If you do not want to go for Chef SERVER
+	Answer - Chef-SOLO
+
+chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client’s Chef local mode
+
+chef-solo --> chef-client in localmode
+
+How can you setup a chef-solo with multiple cookbooks?
+http://www.scmgalaxy.com/tutorials/chef-solo/
+
+Step 1 - install & download chef-solo
+Step 2 - install & download chef-client
+Step 3 - Create a chef-solo configuration file named with "solo.rb"
+		chef-repo/solo.rb
+
+	Which contain the 
+		cookbook location
+		log location
+		etc
+
+---------------CONTENT OF solo.rb-------------------------
+file_cache_path "/root/chef-solo/cache"
+json_attribs "/root/chef-solo/json"
+cookbook_path "/root/chef-training-programs/rajesh/chef-repo/cookbooks"
+log_level :debug
+
+----------------------------------------------------------------------------------------------------
+	
+What are the other config options you have in chef-solo?
+https://docs.chef.io/config_rb_solo.html
+
+Step 4 - Create a json a file "web.json"
+		chef-repo/web.json
+		
+	Will contain the runlist
+			cookbook cookbook
+			roles
+			environment
+-----------------CONTENT OF web.json--------------------
+{
+"run_list": [ "recipe[webserver]" ]
+}
+	
+IN THE CRONTAB 
+	1. git pull origin master # get the latest coookbooks from GIT
+	2. run the chef-solo
+
+$ chef-solo -c chef-repo/solo.rb -j chef-repo/web.json
+
+$ chef-solo -c /root/chef-training-programs/rajesh/chef-repo/solo.rb -j /root/chef-training-programs/rajesh/chef-repo/web.json
+# This will not give the error and FATAL such as 
+WARN: Did not find config file: /solo.rb, using command line options.
+FATAL: Cannot load configuration from web.json
+
+
+When you run chef-solo?
+==================================
+It looks for solo config @/etc/chef/solo.rb
+It looks for solo config @/etc/chef/client.rb
+
+
+
+Reference
+https://docs.chef.io/chef_solo.html
+
+[root@ip-172-31-21-212 webserver]# tree
+.
++-- Berksfile
++-- chefignore
++-- LICENSE
++-- metadata.rb
++-- README.md
++-- recipes			# Recipes
+¦   +-- default.rb
++-- templates			# For Templates
+¦   +-- file.erb
++-- attributes			# For Templates
+¦   +-- default.rb
++-- files			# For Templates
+¦   +-- index.php
+	dsd.txt
++-- spec			# UNIT TESTING
+¦   +-- spec_helper.rb
+¦   +-- unit
+¦       +-- recipes
+¦           +-- default_spec.rb
++-- test			# INTEG TESTING
+    +-- integration
+        +-- default
+            +-- default_test.rb
+
+FIles Operations in Chef
+===============================================================
+file 	- 			# DONE
+template -			# DONE
+cookbook_file			- https://docs.chef.io/resource_cookbook_file.html
+		is a way using you can copy the file from "cookbooks/webserver/files INTO a node(where chef-client) run
+remote_file
+		is a wy using you can copy a remote file(url) INTO a node(where chef-client) run 
+
+$ chef generate cookbook cookbooks/files
+
+cookbook_file '/opt/index.html' do
+  source 'index.html'
+  owner 'ec2-user'
+  group 'ec2-user'
+  mode '0755'
+  action :create
+end
+
+remote_file '/opt/classroom-infosys-may-2018.txt' do
+  source 'http://www.devopsschool.com/notes/chef/2018/classroom-infosys-may-2018.txt'
+  owner 'ec2-user'
+  group 'ec2-user'
+  mode '0755'
+  action :create
+end
+
+$ sudo chef-client --local-mode --runlist 'recipe[files]'
+
+
+===================================================================================================
+CHEF NOTIFY and SUBSCRIBE
+==================================================================
+cookbook/recipe/default.rb
+		resources1	package
+		resources2	httpd.conf using file
+		resources3	index.html using file
+		resources4	httpd service
+
+		FIRST RUN - IT WILL RUN ALL.
+		Modify httpd.conf
+		SECOND RUN - IDEOMPOTENT (UPTODATE)
+
+				resources1	package			UPTODATE
+				resources2	httpd.conf using file	MODIFICTION>>>>>
+				resources3	index.html using file	UPTODATE
+				resources4	httpd service		UPTODATE
+
+
+
+NOTIFY
+	:before
+	:delayed
+	:immediate, :immediately
+
+
+LOCATION - /etc/httpd/conf/httpd.conf
+$ chef generate cookbook cookbooks/notify
+
+-------------------------------------------
+package "httpd"
+
+template '/etc/httpd/conf/httpd.conf' do
+  source 'httpd.conf.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  notifies :restart, 'service[httpd]', :immediate
+end
+
+service "httpd" do
+ action :nothing
+end
+-------------------------------------------
+$ sudo chef-client --local-mode --runlist 'recipe[notify]'
+https://docs.chef.io/resource_common.html
+
+How to invoke another resources in another recipe with notifies????
+$ sudo chef-client --local-mode --runlist 'recipe[notify::notify1]'
+
+How to invoke another cookbook resources in another cookbook recipe with notifies????
+Answer - depends in metadata.rb
+--------------------------------------------------------------------------------------
+SUBSCRIBE
+------------------------------------------------------------------------------------
+
+file '/opt/file.txt' do
+   mode '0600'
+   owner 'root'
+end
+
+service 'httpd' do
+   subscribes :reload, 'file[/opt/file.txt]', :immediately
+end
+
+=================================================================================================================
+=================================================================================================================
+=================================================================================================================
+=================================================================================================================
+=================================================================================================================
+LETS BECOME AN ADMIN
+================================================================================
+
+When you become an Admin??
+	INFRASTURCTURE oF INFY(BU)
+	ENG	- 2000 (PEOPLE)
+		500 SYMANTEC - THEIR OWN SERVER + THEIR POLICY + OWN SECURITY	- 5  IT/OPS
+		500 HP								- 5  IT/OPS
+		500 EBAY							- 5  IT/OPS
+		500 GREENTECH							- 5  IT/OPS
+			-----------------------------------------------------------------------
+										20 PEOPLE
+
+AT ONE PLACE -??? 
+	ANSWER - CHEF SERVER
+			ORGANIZATION 1  = SYMANTEC == OWN SERVERS + OWN COOKBOOKS + OWN ROLES + OWN ENV
+			ORGANIZATION 2  = HP == OWN SERVERS + OWN COOKBOOKS + OWN ROLES + OWN ENV
+			ORGANIZATION 3	= EBAY == OWN SERVERS + OWN COOKBOOKS + OWN ROLES + OWN ENV								ORGANIZATION 4  = GREENTECH == OWN SERVERS + OWN COOKBOOKS + OWN ROLES + OWN ENV
+		===============================================================
+			ONE PLACE - 5 PEOPLE	
+
+What is ORGANIZATION?
+	is could be separate company/business unit/departmenet separate from each other to maintain their servers and cookbooks.					
+What is ENVIRONMENT????
+	ENVIRONMENT is a way using you can classified the nodes as per their envrionement.... 
+
+SYMANTEC	
+		_default				 DIFF DBNAME-USER-PORT-TEMPLATE-ATTBUT
+		DEVELPEMENT	100	(10 COOKBOOKS) - DIFF DBNAME-USER-PORT-TEMPLATE-ATTBUTES (OVERIDE ATTRIIBUTES)
+		INTEG		100	(10 COOKBOOKS) - DIFF DBNAME-USER-PORT-TEMPLATE-ATTBUTES (OVERIDE ATTRIIBUTES)
+		STAGING		100	(10 COOKBOOKS) - DIFF DBNAME-USER-PORT-TEMPLATE-ATTBUTES (OVERIDE ATTRIIBUTES)	
+		PREPROD		100	(10 COOKBOOKS) - DIFF DBNAME-USER-PORT-TEMPLATE-ATTBUTES (OVERIDE ATTRIIBUTES)	
+		PRODUCTION	100	(10 COOKBOOKS) - DIFF DBNAME-USER-PORT-TEMPLATE-ATTBUTES (OVERIDE ATTRIIBUTES)
+
+		
+What is Roles??
+	Role is nothing a way to classified your nodes into one to run the list of same kind of cookbooks.
+PRODUCTION	100
+		2 LOAD BALANCERS		- Install only LOAD BALANCERS - -5 COOKBOOKS		ROLE 1
+		20 SERVERS - WEBSERVER		- Install httpd OR nginx	- 10 COOKBOOKS		ROLE 1
+		18 SERVER - CACHE SERVER	- Install memcached		- 7 COOKBOOKS		ROLE 1		
+		50 SERVERS - APP SERVER		-  Install Tomcat/APP		- - 15 COOKBOOKS	ROLE 1		
+		10 SERVER  - DB SERVER		- Install mysql			- - 5 COOKBOOKS		ROLE 1
+
+
+What is Cookbooks
+What is ORG
+What is Env
+What is Roles.....
+
+ONE MACHINE ---> Register a Chef Server -> MACHINE ITSELF WILL DECIDE
+							WHICH ORG YOU BELONG TO???
+							WHICH ENV YOU BELONG TO??
+							WHICH ROLE YOU BELONG TO??
+
+
+
+CHEF ARCHITECTURE???
+	CHEF SERVER		DONE
+		ORG		DONE
+		ENV		DONE
+		ROLE		
+
+	WORKSTATION
+		knife
+
+	Node
+		chef-client
+
+
+Chef Server has 2 release
+	FREE - chef-server-core - only command line
+	PAID - chef-server-core -> chef manage GUI
+
+How to setup a Chef Server????
+======================================
+PRE 
+	8GB of RAM == 4GB	
+	100 GB == 30 GB
+	64 bit MACHINE
+	LINUX
+
+INSTURCTIONS - 
+	http://www.devopsschool.com/tutorial/chef/chef-server-install-configuration-in-centos7.html
+
+Step 1- 
+vi /etc/hosts
+
+127.0.1.1 35.154.35.229 chef-server
+127.0.0.1 localhost
+35.154.35.229 35.154.35.229 chef-server
+
+Step 2 - 
+$ hostnamectl set-hostname chef-server
+
+Step 3- Restart
+
+Step 4 - 
+yum install wget -y 
+wget https://packages.chef.io/files/stable/chef-server/12.17.33/el/7/chef-server-core-12.17.33-1.el7.x86_64.rpm
+
+$ rpm -ivh chef-server-core-12.17.33-1.el7.x86_64.rpm
+$ rpm -Uvh chef-server-core-12.17.33-1.el7.x86_64.rpm
+
+$ chef-server-ctl reconfigure
+$ chef-server-ctl status
+[root@ip-172-31-17-100 ~]# chef-server-ctl status
+run: bookshelf: (pid 4000) 49s; run: log: (pid 4042) 49s
+run: nginx: (pid 3813) 53s; run: log: (pid 4426) 44s
+run: oc_bifrost: (pid 3721) 54s; run: log: (pid 3796) 54s
+run: oc_id: (pid 3800) 53s; run: log: (pid 3807) 53s
+run: opscode-erchef: (pid 4242) 46s; run: log: (pid 4215) 48s
+run: opscode-expander: (pid 3870) 50s; run: log: (pid 3989) 50s
+run: opscode-solr4: (pid 3849) 51s; run: log: (pid 3866) 51s
+run: postgresql: (pid 3667) 55s; run: log: (pid 3704) 55s
+run: rabbitmq: (pid 4687) 38s; run: log: (pid 4463) 43s
+run: redis_lb: (pid 28973) 169s; run: log: (pid 4397) 44s
+
+[root@ip-172-31-17-100 ~]# chef-server-ctl
+I don't know that command.
+chef-server-ctl: command (subcommand)
+General Commands:
+  backup
+    Backup the Chef Server
+  cleanse
+    Delete *all* Chef Server data, and start from scratch.
+  cleanup
+    Perform post-upgrade removal of now-obsolete data, configuration files, logs, etc.  Add the '--no-op' flag to see what *would* be removed.
+  gather-logs
+    Create a tarball of recent logs and system information for Chef Support
+  help
+    Print this help message.
+  install
+    Install addon package by name, with optional --path parameter indicating directory containing packages
+  rebuild-migration-state
+    Attempt to rebuild the migration-state file before upgrade.
+  reconfigure
+    Reconfigure the application.
+  reindex
+    Reindex all server data for a given organization
+  restore
+    Restore the Chef Server from backup
+  show-config
+    Show the configuration that would be generated by reconfigure.
+  test
+    Run the API test suite against localhost.
+  uninstall
+    Kill all processes and uninstall the process supervisor (data will be preserved).
+  upgrade
+    Upgrade your private chef installation.
+Service Management Commands:
+  graceful-kill
+    Attempt a graceful stop, then SIGKILL the entire process group.
+  hup
+    Send the services a HUP.
+  int
+    Send the services an INT.
+  kill
+    Send the services a KILL.
+  once
+    Start the services if they are down. Do not restart them if they stop.
+  restart
+    Stop the services if they are running, then start them again.
+  service-list
+    List all the services (enabled services appear with a *.)
+  start
+    Start services if they are down, and restart them if they stop.
+  status
+    Show the status of all the services.
+  stop
+    Stop the services, and do not restart them.
+  tail
+    Watch the service logs of all enabled services.
+  term
+    Send the services a TERM.
+  usr1
+    Send the services a USR1.
+  usr2
+    Send the services a USR2.
+
+Open Source Upgrade Commands:
+  chef12-upgrade-data-transform
+    Transfrom data from an open source Chef 11 server for upload to an Chef 12 server.
+  chef12-upgrade-download
+    Download data from a open source Chef 11 server.
+  chef12-upgrade-upload
+    Upload transformed open source Chef 11 data to a Chef 12 server.
+
+Cleanup Commands:
+  cleanup-bifrost
+    Cleanup orphaned bifrost objects.
+
+Debug Tools Commands:
+  filtered-dump
+    Generate a filtered dump of indexable Chef Objects for all organizations.  Top-level data is captured; only object name is captured from object json
+
+High Availability Commands:
+  backup-recover
+    Set this server to HA backup state, ignoring VRRP
+  ha-status
+    Show the status of high availability services.
+  master-recover
+    Set this server to HA master state, ignoring VRRP.
+Key Rotation Commands:
+  add-client-key
+    Create a new client key
+  add-user-key
+    Create a new user key
+  delete-client-key
+    Delete a key
+  delete-user-key
+    Delete a key
+  list-client-keys
+    List keys for a client
+  list-user-keys
+    List keys for a user
+
+Secrets Management Commands:
+  oc-id-show-app
+    Show configuration for oc-id applications
+  remove-secret
+    Remove secret NAME of GROUP
+  require-credential-rotation
+    Disable the Chef Server and require credential rotation
+  rotate-all-credentials
+    Rotate all Chef Server service credentials
+  rotate-credentials
+    Rotate Chef Server credentials for a given service
+  rotate-shared-secrets
+    Rotate the Chef Server shared secrets and all service credentials
+  set-actions-password
+    Add or change the rabbitmq actions queue password
+  set-db-superuser-password
+    Add or change DB superuser password
+  set-secret
+    Set or change secret NAME of GROUP
+  show-secret
+    Show the value of the given secret in the secret store
+  show-service-credentials
+    Show the service credentials
+
+Organization And User Management Commands:
+  org-create
+    Create an organization in the chef server.
+  org-delete
+    Delete an organization in the chef server.
+  org-list
+    List all organizations in the chef server.
+  org-show
+    Show an organization in the chef server.
+  org-user-add
+    Associate a user with an organization.
+  org-user-remove
+    Dissociate a user with an organization.
+  password
+    Set a user's password or System Recovery Password.
+  user-create
+    Create a user in the chef server.
+  user-delete
+    Delete a user in the chef server.
+  user-edit
+    Edit a user in the chef server.
+  user-list
+    List all users in the chef server.
+  user-show
+    Show a user in the chef server.
+
+Database Commands:
+  psql
+    Launches an interactive psql session with the service database you name. Add '--write' for write access and '--options <OPTIONS>' to specify psql options.
+Server Admins Commands:
+  grant-server-admin-permissions
+    Grant a user the ability to create other users by added the user to the server-admins group.
+  list-server-admins
+    List users that have server-admins permissions.
+  remove-server-admin-permissions
+    Remove all special permission granted to a user from being a server-admin.
+
+
+1. HOW TO CREATE USER USING COMMAND
+$ chef-server-ctl user-create rajeshkumar Rajesh Kumar rajesh@scmgalaxy.com 'rajesh123' --filename rajeshkumar.pem
+$ chef-server-ctl user-create srikanth Srikanth Jagdhane srikanthambadas.j@infosys.com 'srikanth123' --filename srikanthjagdhane.pem
+$ chef-server-ctl user-create shravan shravan Kumar shravan@scmgalaxy.com 'shravan123' --filename shravan.pem
+$ chef-server-ctl user-list
+$ chef-server-ctl user-show
+$ chef-server-ctl user-show rajeshkumar
+
+2. HOW TO CREATE A ORG USING COMMAND
+$ chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user stevedanno --filename /path/to/4thcoffee-validator.pem
+
+$ chef-server-ctl org-create infy-symantec 'symantec, Inc.' --association_user rajeshkumar --filename infy-symantec-validator.pem
+
+$ chef-server-ctl org-user-add infy-symantec shravan
+
+$ chef-server-ctl org-list
+
+$ chef-server-ctl org-show infy-symantec
+
+$ chef-server-ctl test
+
+$ chef-server-ctl test
+$ chef-server-ctl stop
+$ chef-server-ctl start
+===========================================================================================
+===========================================================================================
+HOW TO SETUP A WORKSTATTION IN ADMIN LAPPY USING KNIFE
+===========================================================================================
+===========================================================================================
+INSTALL CHEFDK -- You GET KNIFE
+	
+How knife will come to know that where is your Chef Server?
+	knife --> knife.rb (config file of knife)
+
+		- CHEF SERVER HOST:ORG
+		- username
+		- user pem file
+
+Where knife.rb should be located?
+	~/.chef/knife.rb
+	.chef/knife.rb
+
+WHere should you keep it?
+	chef-repo
+	.chef/knife.rb		- CHEF SERVER 1
+
+	chef-repo1
+	.chef/knife.rb		- CHEF SERVER 2
+	
+
+============================================================================================
+============================================================================================
+====================DAY 4 =============================================================
+
+Cherukuri Bharath Kumar		13.126.160.162
+Gaurav Bhatia			35.154.201.125
+Ezhillarasan Ramalingham 	13.127.23.213
+Shravan Kumar			13.126.125.6
+Yaswanth Kumar Patnana		13.127.197.219
+Amey Sathe			13.127.75.198
+Binu Varghese			13.232.75.98
+Prakash Arumugam		13.232.32.62
+N Reddi Sekhara			52.66.20.145
+Sachin Mittal			13.126.172.88
+Rajat Gupta			35.154.176.163
+Vikashsagar Annagovardhanaun 	13.127.249.47
+Udhaya Priyan Kumar 		13.232.70.130
+Syamala Rao Kurnena		35.154.238.197
+Abhishek_Sharma106         	13.126.8.106
+Sneha Gajare			13.232.43.168
+Seema Kumari			13.232.39.102
+Shailesh Kulkarni		13.232.44.68
+Muneer Abduljalal		35.154.70.25
+Rakshatha Shetty		13.126.70.31
+
+
+LAB 1  - Setup a Chef Server
+
+DEMO - How to setup a WOrkstation....
+======================================================
+=============================================================
+Cherukuri Bharath Kumar		13.232.81.179
+Gaurav Bhatia			35.154.100.192
+Ezhillarasan Ramalingham 	13.127.125.87
+Shravan Kumar			13.126.65.190
+Yaswanth Kumar Patnana		13.232.32.150
+Amey Sathe			13.127.212.137
+Binu Varghese			13.126.76.144
+Prakash Arumugam		13.126.250.0
+N Reddi Sekhara			13.127.217.253
+Sachin Mittal			13.232.76.133
+Rajat Gupta			13.127.42.77
+Vikashsagar Annagovardhanaun 	13.126.218.92
+Udhaya Priyan Kumar 		13.127.50.101
+Syamala Rao Kurnena		13.126.18.96
+Abhishek_Sharma106         	13.232.65.138
+Sneha Gajare			13.232.76.239
+Seema Kumari			13.232.76.239
+Shailesh Kulkarni		35.154.120.173
+Muneer Abduljalal		13.232.77.5
+Rakshatha Shetty	
+
+MINE ->  13.127.217.253
+
+S1 - Install git
+$ yum install git -y
+
+S2 - Download your cookbook
+$ git clone https://github.com/scmgalaxy/chef-training-programs.git
+
+S3 - Install ChefDk for KNIFE
+$ yum install wget -y
+$ wget https://packages.chef.io/files/stable/chefdk/2.5.3/el/7/chefdk-2.5.3-1.el7.x86_64.rpm
+$ rpm -ivh chefdk-2.5.3-1.el7.x86_64.rpm
+$ knife
+
+S4 - Configure Knife
+$ knife configure
+	WILL ASK YOU
+			HOST:ORG URL
+			USER NAME
+			PEM
+	THEN ON THE INPUTS. IN THE CURR DIR
+	.chef/knife.rb
+
+## COPY THE STARTER KIT of .chef into chef-repo directory.
+
+How to verify???
+$ knife ssl check
+
+LOCAL WORKSTATTION SSL CONFIG
+--------------------------------------------
+OpenSSL Configuration:
+* Version: OpenSSL 1.0.2n  7 Dec 2017
+* Certificate file: /opt/chefdk/embedded/ssl/cert.pem
+* Certificate directory: /opt/chefdk/embedded/ssl/certs
+Chef SSL Configuration:
+* ssl_ca_path: nil
+* ssl_ca_file: nil
+* trusted_certs_dir: "/root/chef-training-programs/rajesh/chef-repo/.chef/trusted_certs"
+
+CHEF SERVER SSL INFO
+================================
+If the server you are connecting to uses a self-signed certificate, you must
+configure chef to trust that server's certificate.
+
+By default, the certificate is stored in the following location on the host
+where your chef-server runs:
+
+  /var/opt/opscode/nginx/ca/SERVER_HOSTNAME.crt
+
+Copy that file to your trusted_certs_dir (currently: /root/chef-training-program         s/rajesh/chef-repo/.chef/trusted_certs)
+using SSH/SCP or some other secure method, then re-run this command to confirm
+that the server's certificate is now trusted.
+
+How to get a certificates from CHEF Server?
+[root@ip-172-31-25-246 chef-repo]# knife ssl fetch
+WARNING: Certificates from 13.232.31.223 will be fetched and placed in your trusted_cert
+directory (/root/chef-training-programs/rajesh/chef-repo/.chef/trusted_certs).
+
+Knife has no means to verify these are the correct certificates. You should
+verify the authenticity of these certificates after downloading.
+
+Adding certificate for 13_232_31_223 in /root/chef-training-programs/rajesh/chef-repo/.chef/trusted_certs/13_232_31_223.crt
+
+
+
+============================================================
+============================================================
+============================================================
+			HOW TO SET UP A NODE?
+-------------------------------------------------------------
+Cherukuri Bharath Kumar		34.242.144.156
+Gaurav Bhatia			34.243.210.27
+Ezhillarasan Ramalingham 	54.171.54.105
+Shravan Kumar			34.242.48.125
+Yaswanth Kumar Patnana		34.250.230.73
+Amey Sathe			52.213.185.6
+Binu Varghese			52.209.174.20
+Prakash Arumugam		34.240.4.41
+N Reddi Sekhara			54.171.186.223
+Sachin Mittal			34.253.230.247
+Rajat Gupta			54.194.71.61
+Vikashsagar Annagovardhanaun 	34.240.194.217
+Udhaya Priyan Kumar 		52.209.152.245
+Syamala Rao Kurnena		52.213.245.79
+Abhishek_Sharma106         	54.246.213.77
+Sneha Gajare			34.253.89.181
+Seema Kumari			54.229.50.96
+Shailesh Kulkarni		34.244.96.232
+Muneer Abduljalal		52.209.248.179
+Rakshatha Shetty		52.18.207.53
+=====================================================
+
+MY NODE - 54.171.186.223
+
+S1 - Add a node to chef server
+S2 - Inform a Node that 
+		HE BELONGS TO
+			THIS ORG =========knife.rb -- Org name
+			THIS ENV ========= _default
+			THIS ROLE 
+You need a following info of the node to add into chef server?
+1. hostname | IP add
+2. USER NAME 
+3. PASSWORD OR KEYS
+	
+This process is called in chef "bootstarpping process"????
+---------------------------------------------------------------
+FIRST RUN OF NODE
+	
+	chef-client -> /etc/chef/client.rb		--> Chef-Server   --install chef-client -----> Client.pem  --> 
+			- CHEF SERVER							       in the node /etc/chef/client.pem
+			- CERTIFICATE of CHEF SERVER	- Verify if SSL & K
+			- KEY OF ORG (Validator key)	    validator key ar correct
+	
+
+		---> CHEF SERVER WILL PUSH THE 
+				COOKBOOKS OR
+				ROLE 
+					TO NODE DEPENDS ON THE RUNLIST OF TEH NODE
+
+NEXT RUN ONWARDS
+	chef-client --> client.rb --> client.pem -> fETCH THE COOKBOOKS/ROLES CHANGES FROM SERVER ---> run in locally.
+
+
+				
+1. ADD A NODE TO CHEF SERVR
+$ knife bootstrap 54.171.186.223 --ssh-user ec2-user --sudo --identity-file node.pem --node-name node1	
+# THIS WILL DO """FIRST RUN OF NODE"""
+
+2. EDIT A NODE WITH RUN LIST
+$ knife node edit node1
+	Upload your cookbook?
+	$ knife cookbook upload webserver	# Single Cookbook
+	$ knife cookbook upload -a		# All Cookbook
+3. RUN A chef-client (How???)
+	1. ONE WAY - USING KNIFE	
+		chef-client using SSH
+		$ knife ssh 'name:*' 'sudo chef-client'
+		$ knife ssh 'name:node1' 'sudo chef-client' --ssh-user ec2-user -i node.pem 
+	2. 2nD WAY - IN NODE ITSEL
+		chef-client
+
+=================================================================================
+=================================================================================
+=================================================================================
+How can i add run multiple cookbooks in multiple Nodes????
+Answer ->> ROLES
+
+
+
+Step 1 - You need to create a role such
+			webserver
+			database
+			appserver
+Step 2 - Assign a Lists of Cookbooks for that roles??
+
+Step 3 - Add a Node RUN LIST 
+				NOT WITH COOKBOOK
+				BUT WITH ROLES
+Step 3. 
+$ knife ssh "role:webserver" "sudo chef-client" --ssh-user ec2-user -i node.pem
+
+How to create a role?
+	Create a role using chef Server GUI
+	Create a rle using RB file local and upload it Chef-Server
+	Create a roles using json file in local and upload it Chef-Server
+	Create a role using knife	############TRYING
+	Create A role usng CHEF API
+$ knife cookbook upload webserver
+ knife cookbook upload files
+ knife cookbook upload notify
+$ export EDITOR=vi
+$ knife role create webserver
+
+{
+  "name": "webserver",
+  "description": "this is oor infy demo of chef role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[webserver]",
+    "recipe[files]",
+    "recipe[notify]"
+  ],
+  "env_run_lists": {
+
+  }
+}
+
+
+[root@ip-172-31-25-246 chef-repo]# knife role show webserver
+chef_type:           role
+default_attributes:
+description:         this is oor infy demo of chef role
+env_run_lists:
+json_class:          Chef::Role
+name:                webserver
+override_attributes:
+run_list:
+  recipe[webserver]
+  recipe[files]
+  recipe[notify]
+
+
+$ knife bootstrap 34.253.230.247 --ssh-user ec2-user --sudo --identity-file node.pem --node-name node2 --run-list "role[webserver]"
+$ knife ssh "role:webserver" "sudo chef-client" --ssh-user ec2-user -i node.pem
+
+=========================================================
+ENVIRONMENT
+===========================
+
+		_default
+		developement	recipe[webserver:0.1.3]		DEV
+		qa		recipe[webserver:0.1.2]		TESTING
+		production	recipe[webserver:0.1.1]		STABLE
+
+What is there in env...
+	name
+	description
+	default_attributes
+	overrides_attributes
+	
+	------------constraint -----------------------------
+	cookbook		cookbook 'couchdb', '< 11.0.0'	
+	cookbook_versions
+				"cookbook_versions": {
+    				"webserver": "= 0.1.1"
+  				},
+
+	---------------------------
+
+
+How to create an env
+	Create a env using chef Server GUI
+	Create a env using RB file local and upload it Chef-Server
+	Create a env using json file in local and upload it Chef-Server
+	Create a env using knife	############TRYING
+	Create A env usng CHEF API
+
+$ knife environment create developement
+
+{
+  "name": "developement",
+  "description": "",
+  "cookbook_versions": {
+	"webserver": "= 0.1.1"
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+       "webserver": {
+      "name": [
+        "RAM"
+      ]
+    }	
+
+  }
+}
+~
+
+
+$ knife ssh "name:*" "sudo chef-client" --ssh-user ec2-user -i node.pem --environment developement
+$ knife ssh "chef_environment:developement" "sudo chef-client" --ssh-user ec2-user -i node.pem
+
+
+
+CHEF SERVER
+	I will discuss the architect
+	ORG
+	ENV
+	ROLE
+	NODES
+	HOW TO SETUP CHEF SERVER
+	HOW TO SETUP CHEF NODE
+	HOW NODE  - SERVER WORKS
+	
+	HOW TO IMPLEMENT CHEF SEVER for PRODUCTION
+
+
+========================================================
+CHEF SUPERMARKET
+
+INFY --- 1000+ ===== 1000000 Companines...... CHEF.....
+-------------------------------------------------------------
+STATANRD COOKBOOK IS WRITTENS ONCE
+	BY COMMUNITY
+	MAINTAINED BY COMMUNITY
+
+When Anyone wants to use....They can get.....
+
+ONE COOKBOOK - 
+	JDK		-- 
+	TOMCAT		--
+	INFYX
+
+ANSWER ----> 
+https://supermarket.chef.io/
+
+UPLOAD & DOwnload Cookbook
+
+HOW TO DOWNLOAD?
+$ knife cookbook site install java
+	# only if there .git repo
+	# java
+	# dependent cookbooks - 10
+		Create a 10 branch of git
+$ knife cookbook site install java --use-current-branch
+$ knife cookbook site download java
+
+===============================================================
+JAVA --> CODE REVIEW(SonarQube---100s)
+Chef ---> Code REVIEW....
+HOw to do a code review in Chef Cookbooks?
+Answer - foodcritic
+
+Where to get foodcritic?
+CHEFDK
+
+How to do use foodcritic??
+$ foodcritic cookbook-name
+
+Checking 8 files
+x.......
+FC064: Ensure issues_url is set in metadata: webserver/metadata.rb:1
+FC065: Ensure source_url is set in metadata: webserver/metadata.rb:1
+FC067: Ensure at least one platform supported in metadata: webserver/metadata.rb:1
+FC078: Ensure cookbook shared under an OSI-approved open source license: webserver/metadata.rb:1
+FC093: Generated README text needs updating: webserver/README.md:1
+
+FC064, FC065.... ARE RULES>>>>
+
+FIXED THE RULES WITH THE HELP OF - http://www.foodcritic.io
+
+Refernece
+http://www.scmgalaxy.com/tutorials/chef-code-analysis-using-foodcritic/
+
+
+Chef in Windows
+==================================================
+ALL CHEF COMMANDS ARE SAME.
+	ONLY CHEF RESOURCES GET CHNAGED.
+
+1. Install ChefDk for WINDOWS
+https://downloads.chef.io/chefdk
+
+EXCERCISE  - 20 MINS.....
+http://www.devopsschool.com/tutorial/chef/chef-basics-in-windows.html
+	
+	
+WINDOWS 2016 SERVER 1	= Sumit Chadha
+-----------------------------------------
+
+Public DNS	ec2-35-154-11-227.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+))wTA5a*O=MoNWjcl-QavPZXHTBar3lJ
+
+WINDOWS 2016 SERVER 2 = Sumit Chadha
+-----------------------------------------
+Public DNS	ec2-13-232-50-182.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+VYxZ62)L4KKAxoxO95%ftEnszbQ3XgQw
+
+WINDOWS 2016 SERVER 3 = Aromal Raj
+-----------------------------------------
+Public DNS	ec2-52-66-187-167.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+fuC9p7My!iUUpD?tiFAGukih3bwtBO&(
+
+WINDOWS 2016 SERVER 4 = Rakshatha Shetty
+-----------------------------------------
+Public DNS	ec2-13-126-242-125.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+cv(mkuG3lg4eE$)m(R.W5On!hq-2Vwi;
+
+WINDOWS 2016 SERVER 5 = Vijayababu Emani
+-----------------------------------------
+Public DNS	ec2-52-66-89-246.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+yC=YrnQmN5;b%osX6EzM@XmznTZJlorj
+
+WINDOWS 2016 SERVER 6 = gouthami
+-----------------------------------------
+Public DNS	ec2-13-232-78-148.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+hAZ6ORb4FUgi2by2rSKJaxkyf63FX%!X
+
+WINDOWS 2016 SERVER 7 = bharath
+-----------------------------------------
+Public DNS	ec2-13-127-135-136.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+bS@7)y*.zZ8lEwDY;OdWsUYTuF-Da%5k
+
+WINDOWS 2016 SERVER 8 = swati
+-----------------------------------------
+Public DNS	ec2-13-126-187-100.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+.TTr!PfF9yz(VVrPDu758g.mB*GWhO2j
+
+WINDOWS 2016 SERVER 9 = YASHWANT
+-----------------------------------------
+Public DNS	ec2-35-154-83-137.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+*HKSm&j65@6mnitvTuF3oMiVyN)@$?EN
+
+WINDOWS 2016 SERVER 10 = GAURAV
+-----------------------------------------
+Public DNS	ec2-13-232-63-107.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+CcUBQ7JsE6!OEc7n(a9I)MQOz?BU7WnS
+
+WINDOWS 2016 SERVER 11 = ROHIT
+-----------------------------------------
+Public DNS	ec2-13-126-12-65.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+f7zr7GkFT!qpsqyX!N-nD&3aQ-M?%?sw
+
+WINDOWS 2016 SERVER 12 = ROHIT
+-----------------------------------------
+Public DNS	ec2-35-154-88-252.ap-south-1.compute.amazonaws.com
+User name	Administrator
+Password	
+ObymlsFt5EtP.edXbDxB.)-x*LNpfH)j
+
+NEW SERVER
+===========================
+CHEF SERVER - 35.154.35.229
+WORKSTATION - 13.127.18.100
+
+==========================================================
+What is DATA Bags?
+	IT IS A PLACE TO STORE A GLOBAL VARIABLE IN THE CHEF SERVER.
+
+WHY?
+	ANSWER - 
+		SECUIRTY ---PASSWORD | KEY	
+		GLOBAL ACCESSIBILITY ---
+		MANY 
+
+HOW TO CREATE DATA BAG??
+$ knife data bag create infy
+
+HOW TO CREATE BAG ITEM &&& HOW TO CREATE DATA BAG ITEM ELEMENTS
+$ knife data bag create infy company_detail
+
+name = infosys
+
+{ 
+   "id": "company_detail", 
+   "name": "infosys" 
+}
+
+HOW TO ACCESS THE DATABAGS
+
+recipe/default.rb
+----------------------------------------------------------
+boy = search(:infy, "id:company_detail").first
+
+package "httpd"
+
+service "httpd" do
+        action :start
+end
+
+file '/var/www/html/index.html'  do
+        content "This is php version - #{node["version"]} -- #{boy["name"]}"
+end
+----------------------------------------------------------
+knife upload cookbook databags
+knife bootstrap 13.127.18.100 --ssh-user ec2-user --sudo --identity-file node1.pem --node-name infy1 --runlist 'recipe[databags]'
+knife ssh "name:infy1 " "sudo chef-client" --ssh-user ec2-user -i node1.pem 
+
+https://docs.chef.io/data_bags.html
+
+
+CHEF PROGRAMMER - 
+	PROGRAMMING
+	OPS - ADMIN
+	COde Review - using foodcritic
+	UNIT TESTING - CHEFSPEC
+
+What is a CHEFSPEC?
+ITS FOR CHEF UNIT TESTING......
+
+chef generate cookbook cookbooks/chef-unittesting
+
+vi recipe/default.rb
+----------------------------------------------------------
+boy = search(:infy, "id:company_detail").first
+
+package "httpd"
+
+service "httpd" do
+        action :start
+end
+
+file '/var/www/html/index.html'  do
+        content "This is php version"
+end
+----------------------------------------------------------
+
+vi spec/unit/recipes/default_spec.rb
+
+require 'chefspec'
+
+describe 'chef-unittesting::default' do
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'redhat', version: '7.5').converge(described_recipe) }
+
+  it 'installs httpd' do
+    expect(chef_run).to install_package('httpd')
+  end  
+
+end
+
+cd /root/chef-training-programs/rajesh/chef-repo/cookbooks/chef-unittesting
+$ chef exec rspec spec/unit/recipes/default_spec.rb  
+
+
+MORE EXAMPLE IN CHEFSPEC
+https://github.com/chefspec/chefspec
+
+=========================================================================================
+Push Jobs Server
+The Push Jobs server add-on, along with its associated client, extends the Chef Server to allow you to execute commands across hundreds or even thousands of nodes in your Chef-managed infrastructure.
+
+
+============================================
+CHEF SERVER --> AGENT (MANALLY USING KNIFE + Push Jobs Server)
+AGENT --> CHEF SERVER
+
+	run chef-client in deamon mode.
+	modify client.rb
+		interval 1800 
+
+
+=============================================
+
+CHEF -- RECIEPE --> Cookbooks-KITCHEN---> PUBLISHING....
+
+HOW TO LEARN THIS TOOL (KITCHEN)
+=====================================================
+https://kitchen.ci/
+
+Ruby Programming
+=====================================================
+
+LANGUAGE --> 	
+	WORD
+	GRAMMER -->
+	WORD + WORD + WORD + WORD WITH LOGIC = SENTENCE
+	SENTENCE + SENTENCE +SENTENCE = PAGE
+
+Computer Languages
+	RESERVED WORD	
+	RESERVED WORD + YOUR WORD + LOGIC...----
+
+===========================================================
+
+
+RUBY 
+	PROGRAM LANG
+	OOPL
+
+PROCUDT  NAME - INFYX (4) FEATURES
+
+fea1.rb  == 20 funtions
+fea2.rb	 == 20 funtions
+fea3.rb   == 20 funtions
+fea4.rb   == 20 funtions
+main.rb 
+
+
+file- fea1.rb (CLASS)
+========================
+class {
+
+	def method1 ()
+		condition block
+			RESERVED WORD + YOUR WORD
+		looping block
+			RESERVED WORD + YOUR WORD
+
+	def method2 ()
+}
+
+file- fea2.rb (CLASS)
+========================
+class {
+
+	def method1 ()
+	def method2 ()
+}
+
+
+file- fea3.rb (CLASS)
+========================
+class {
+
+	require fea2.rb
+	indude 	fea2.rb
+
+	def method1 ()
+	def method2 ()
+}
+
+file- fea4.rb (CLASS)
+========================
+class {
+
+	def method1 ()
+	def method2 ()
+}
+
+file- main.rb (CLASS)
+========================
+class {
+
+	require fea1.rb
+	indude 	fea2.rb
+	extend	fea3.rb
+	import	fea4.rb 
+}
+
+
+
+RESERVED WORD 
+============================
+CONSTANT VARIable
+OPERATORS
+
+
+YOUR WORD
+=================
+DATA TYPE
+	string
+	int
+	array
+	harhs
+
+===============================================================
+How to store rb file?
+.rb
+
+How to compile?
+$ ruby main.rb
+
+
+
+class Vehicle {
+
+   Number no_of_wheels
+   Number horsepower
+   Characters type_of_tank
+   Number Capacity
+
+   Function speeding {
+		
+   }
+   
+   Function driving {
+   }
+   
+   Function halting {
+   }
+}
+
+I have Goal...
+
+common.rb
+validatiion of date
+
+s1	--
+2	--	include common.	
+		dds(dsfdfs)
+3	---
+4	---
+5	--	validatiion of date
+6	--
+=====================================================
+
+Lets Practice RUBY 
+http://www.devopsschool.com/slides/ruby/index.html
+OR
+https://scotch.io/tutorials/a-crash-course-in-ruby
+
+
+KNOW ABOUT ME?
+RAJESH KUMAR
+
+EMAIL  - DevOps@RajeshKumar.xyz
+Mobile - +91 8105843520
+CV - http://rajeshkumar.xyz/cv/
+My Courses - http://www.scmgalaxy.com/courses/
+My Tutorails  - 
+	http://www.scmgalaxy.com/tutorials
+	http://www.devopsschool.com/
+
+===============================================
+How to get Course Materials & Training Certificates?
+
+
+SUBJECT = Infosys - Hyderabad - Master in Chef
+
+Full Name - 
+Personal Email Address - 
+Phone #
+Role in the project - 
+
+Please send to info@scmgalaxy.com 
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
